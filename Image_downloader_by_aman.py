@@ -1,17 +1,17 @@
-from selenium import webdriver
-import requests
-from bs4 import BeautifulSoup
+from selenium import webdriver #selenium is  used to automate the browser for doing human task
+import requests                #Used to make Http request in python
+from bs4 import BeautifulSoup  # Used for extracting and beautifying html and xml using selectors and others.
 
 
 #see_what_u_are_downloading is the function that is automating the Firefox browser to fetch the url results . This is optional to use to see images tab in real time.
     
 def see_what_u_are_downloading(url):
-    driver = webdriver.Firefox(executable_path=r"E:\geckodriver-v0.24.0-win64\geckodriver.exe")
+    driver = webdriver.Firefox(executable_path=r"E:\geckodriver-v0.24.0-win64\geckodriver.exe")  #If you want to use Chrome then download the chrome driver
     driver.get(url)
     images = driver.find_elements_by_tag_name('img')
-    for image in images:
-        image_url = image.get_attribute('src')
-    driver.close()
+    '''for image in images:                             #This also extract link from the attributes but it is not reliable.
+        image_url = image.get_attribute('src')'''
+    driver.close()                                      #Closes browser window
 
 def get_my_image(url):
     
